@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Sky</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <style>
+        body {
+            background-color: #000000;
+        }
+        #sky {
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            animation-name: star_sky;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes star_sky {
+            0%   {top: 100px;}
+        }
+    </style>
+
+</head>
+<body>
+    <div id="sky"></div>
+
+    <script>
+        const sky = document.getElementById('sky');
+        const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'white'];
+        for (var i = 0; i < 77; i++) {
+            const star = document.createElement('span');
+            star.className = 'fa fa-star star';
+            star.style.top = Math.floor(Math.random() * 100) + '%';
+            star.style.left = Math.floor(Math.random() * 90) + '%';
+            star.style.color = colors[Math.floor(Math.random() * colors.length)];
+            star.style.fontSize = 30 + Math.floor(Math.random() * 51) + 'px';
+            sky.append(star);
+        }
+    </script>
+</body>
+</html>
